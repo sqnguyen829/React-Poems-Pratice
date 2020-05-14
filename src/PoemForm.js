@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export class PoemForm extends React.Component{
 
     state = {
@@ -8,12 +7,23 @@ export class PoemForm extends React.Component{
         content: ''
     }
 
-    setName = e => this.setState({ name: e.target.value })
+    setName = e => {
+        // console.log(e.target.value)
+        this.setState({ name: e.target.value })
+    }
 
-    setContent = e => this.setState({ content: e.target.value })
+    setContent = e => {
+        // console.log(e.target.value)
+        this.setState({ content: e.target.value })
+    }
 
     handleSubmit = () => {
         // What should we do here?
+        this.props.handleAddPoem(this.state)
+        this.setState({
+            name:'',
+            content:''
+        })
     }
 
     render(){
@@ -32,6 +42,4 @@ export class PoemForm extends React.Component{
             </div>
         )
     }
-
-
 }
